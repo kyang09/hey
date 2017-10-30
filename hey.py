@@ -23,11 +23,12 @@ def buildWordTree(words):
 def getRandomWord(root_node):
     word = ""
     cur_node = root_node
-    continue_search = random.choice([True, False])
+    continue_search = False
     while (not cur_node.isWord or continue_search) and cur_node.nextNodes != {}:
         word += cur_node.character
         random_choice = random.choice(cur_node.nextNodes.keys())
         cur_node = cur_node.nextNodes[random_choice]
+        continue_search = random.choice([True, False])
     word += cur_node.character
     return word
 
